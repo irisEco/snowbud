@@ -1,0 +1,14 @@
+:concurrency: 5
+
+:queues:
+  - [default, 10]
+  - [high, 20]
+  - [sms, 10]
+  - [mailers, 10]
+
+development:
+  :concurrency: 5
+staging:
+  :concurrency: 10
+production:
+  :concurrency: 20

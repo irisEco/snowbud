@@ -1,0 +1,32 @@
+default: &default
+
+  events:
+    # 面试邀约
+    interview_invite:
+      send_mode: ["sms"]
+      sms:
+        content: |
+          %{name}，恭喜通过评估进入面试。
+          职位：%{job_name}
+          时间：%{start_at}
+          联系人：%{hr_name}
+          联系电话：%{hr_phone}
+          面试前请先填写面试资料：%{short_url}
+    # 验证码
+    verify_code:
+      send_mode: ["sms"]
+      sms:
+        content: "验证码：%{code}，5分钟内有效，请勿泄露给其他人。"
+        dy_template: "SMS_165418606"
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

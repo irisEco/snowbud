@@ -1,0 +1,91 @@
+# 项目中定义的异常
+default: &default
+  # 系统级别，即框架中抛出的异常，错误码区间：100000 - 199999
+  # 系统级别的错误不会生成异常类
+  sys:
+    record_invalid:
+      code: "100000"
+      message: "数据无效"
+    activerecord_not_found:
+      code: "100001"
+      message: "未找到记录"
+    parameter_invalid:
+      code: "100002"
+      message: "不合法参数"
+    unknown:
+      code: "999999"
+      message: "未知异常"
+  # 业务级别，即在实现业务逻辑时自定义的异常，错误码区间：200000 - 299999
+  # 业务级别的错误会动态生成异常类，调用方式：
+  #
+  #   raise Demo::Exception::RecordNotFound
+  #   raise Demo::Exception::RecordNotFound, '这是一个错误'
+  #
+  project:
+    # 200000 ~ 299999
+    RecordNotFound:
+      code: "200000"
+      message: "记录未找到"
+    UserNotExist:
+      code: "200001"
+      message: "账号不存在"
+    AttachmentNotFound:
+      code: "200002"
+      message: "资源不存在"
+    AttachmentTypeError:
+      code: "200003"
+      message: "文件类型不匹配"
+    CaptchaInvalid:
+      code: "200004"
+      message: "图形验证码不正确"
+    VerificationCodeLimit:
+      code: "200005"
+      message: "请勿频繁请求验证码"
+    VerificationCodeInvalid:
+      code: "200006"
+      message: "无效的验证码"
+    PasswordInvalid:
+      code: "200007"
+      message: "密码不正确"
+    RecordMismatch:
+      code: "200008"
+      message: "不匹配的操作"
+    RecordInvalid:
+      code: "200010"
+      message: "数据无效"
+    UserNotAllowLogin:
+      code: "200011"
+      message: "不允许管理员登录"
+    PhoneExist:
+      code: "200017"
+      message: "手机号已存在"
+    UserError:
+      code: "200018"
+      message: "管理员创建/编辑失败"
+    SuperRoleNotExists:
+      code: "200019"
+      message: "超级管理员角色不存在"
+    ServerError:
+      code: "299999"
+      message: "服务器异常"
+    OperateOften:
+      code: "289999"
+      message: "操作太频繁，请稍后再试"
+    CodeError:
+      code: "279999"
+      message: "编码生成重复"
+    RoleError:
+      code: "269999"
+      message: "无权操作"
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

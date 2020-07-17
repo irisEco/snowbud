@@ -1,0 +1,26 @@
+default: &default
+  access_key_id: "xxx"
+  access_key_secret: "xxx"
+
+  sms:
+    api_host: "xxx"
+
+  api_gateway:
+    # 短网址生成
+    cmapi025335:
+      app_key: "xxx"
+      app_secret: "xxx"
+      domain: "xxx"
+      protocol: "xxx"
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

@@ -1,0 +1,125 @@
+defaults: &defaults
+  project_name: "Demo-API-Dev"
+  secret_token: "ajslkdjhalksjhdfkljash"
+  host: "http://api-dev.deercal.com"
+  manager_host: "http://baidu.com"
+  client_host: "http://baidu.com"
+
+  # 话费充值
+  phone_recharge_channel: "runpu"
+
+  # sidekiq
+  sidekiq:
+    web_auth_password: xxxx
+    monit:
+      enable: true
+      interval_seconds: 60
+      mobiles:
+        - 13681695220
+
+  # redis config
+  redis: &redis
+    url: "redis://localhost:6379/0"
+    namespace: "deercal_study"
+
+    job_url: "redis://localhost:6379/0"
+    job_namespace: "deercal_study_job"
+
+    data_url: "redis://localhost:6379/9"
+    data_namespace: "deercal_study_data"
+
+    cache_store_url: "redis://localhost:6379/9"
+    cache_store_namespace: "deercal_study_data"
+
+    pub_sub_url: "redis://localhost:6379/9"
+    pub_sub_namespace: "deercal_pub_sub"
+
+  qiniu:
+    access: "xxx"
+    sercet: "xxx"
+    host: "xxx"
+    bucket: "xxx"
+    callback_url: ""
+
+  file_extensions:
+    img: ["jpg", "gif", "png", "jpeg"]
+    video: ["flv", "mpg", "mpeg", "avi", "wmv", "mov", "asf", "rm", "rmvb", "mkv", "m4v", "mp4"]
+    audio: ["mp3", "wav"]
+    text: ["txt"]
+
+  ding_bot:
+    url: "https://oapi.dingtalk.com/robot/send"
+    enable: true
+    info_access_token: "xxx"
+    error_access_token: "xxxx"
+
+  wx:
+    api_host: "https://api.weixin.qq.com"
+    miniprogram:
+      docking_key: "xxx"
+
+  sms:
+    service: "et/sms"
+    # service: "ali/dy/sms"
+    sign: "禄鸣"
+    sendable: false
+    et:
+      da: "86"
+      dc: 15
+      spid: "xxx" # 测试
+      encoding: "GBK"
+      sppassword: "xxx" # 测试
+      default_spsc: true # 使用生产账号需要改为false
+      api_host: "http://esms900.10690007.net"
+    dy:
+      api_host: "https://dysmsapi.aliyuncs.com"
+      access_key_id: "xxx"
+      access_key_secret: "xxx"
+
+  fadada:
+    server: "https://testapi.fadada.com:8443/api/"
+    app_id: ""
+    app_secret: ""
+    customer_id: ""
+    customer_name: ""
+    keyword: ""
+    default_mobile: ""
+    signature_id: ""
+
+  email_smtp:
+    address: "smtp.exmail.qq.com"
+    port: "465"
+    ssl: true
+    authentication: "login"
+    user_name: ""
+    password: ""
+    asset_host: ""
+    from_name: ""
+
+  auto_create_contract: ["携程-API测试", "艺龙网信息技术（北京）有限公司天津滨海新区分公司"]
+
+  notification:
+    sendable: false
+
+  # 服务器是否停服，true： 不停服，系统可用，false：停服，服务器不可用
+  can_use_program:
+    admin: true
+    manager: true
+    client: true
+
+  # 不生成电子对账单盖章版的企业ID
+  organization_bill_order_not_in: []
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+  project_name: "Demo-API-Staging"
+
+production:
+  <<: *defaults
+  project_name: "Demo-API-Pro"

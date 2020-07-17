@@ -1,0 +1,25 @@
+default: &default
+  channel: "et" # dy
+  sign: "禄鸣"
+  sendable: false
+
+  et:
+    da: "xxx"
+    dc: xxx
+    spid: "xxx"
+    encoding: "xxx"
+    sppassword: "xxx"
+    default_spsc: true # 使用生产账号需要改为false
+    api_host: "xxx"
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

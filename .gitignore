@@ -1,0 +1,27 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+*.DS_Store
+
+.rvmrc
+.idea/
+.vscode/
+.byebug_history
+.rakeTasks
+
+dump.rdb
+
+db/schema.rb
+
+config/puma.rb
+config/database.yml
+config/nginx.conf
+config/services.yml
+config/app_settings/*.yml
+
+tags
