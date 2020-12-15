@@ -50,9 +50,9 @@ module Client::V1
       error!({ code: code, msg: msg }, 200)
     end
 
-    rescue_from Demo::Exceptions::VerificationCodeInvalid, Demo::Exceptions::CaptchaInvalid do |e|
-      error!({ code: e.code, msg: e.message }, 200)
-    end
+    # rescue_from Demo::Exceptions::VerificationCodeInvalid, Demo::Exceptions::CaptchaInvalid do |e|
+    #   error!({ code: e.code, msg: e.message }, 200)
+    # end
 
     rescue_from :all do |e|
       Utils::DingNotifier.error("ClientApiError", e)

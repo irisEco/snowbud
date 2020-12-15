@@ -17,6 +17,6 @@ module Demo::Exceptions
         super(_msg, code)
       end
     end
-    Interview::Exceptions.const_set(k, klass)
+    # Interview::Exceptions.const_set(k, klass)
   end
 end

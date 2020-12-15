@@ -5,6 +5,10 @@ gem 'rake'
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 # Pg is the Ruby interface to the PostgreSQL RDBMS
 gem 'pg', '~> 1.2', '>= 1.2.2'
+gem 'rspec-core', '~> 3.5.0'
+gem 'rspec-expectations', '~> 3.5.0'
+gem 'rspec-mocks',' ~> 3.5.0'
+gem 'rspec', '~> 3.5'
 # Off The Rails ActiveRecord: Use ActiveRecord with Grape, Sinatra, Rack, or anything else!
 gem 'otr-activerecord', '~> 1.4', '>= 1.4.1'
 # A toolkit of support libraries and Ruby core extensions extracted from the Rails framework.
@@ -101,6 +105,7 @@ gem 'redis-mutex', '~> 4.0', '>= 4.0.1'
 gem 'whenever', '~> 0.9.4'
 # Enables to set jobs to be run in specified time (using CRON notation)
 gem 'sidekiq-cron', '~> 1.1'
+
 
 
 group :development do
